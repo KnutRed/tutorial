@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css"
 const pageTitle = "About Me";
 
 const identity = {
@@ -12,6 +13,10 @@ const skills = ["HTML", "CSS", "JavaScript", "Astro", "Cooking"]
 const happy = true
 const finished = false
 const goal = 3
+
+const skillColor = "navy";
+const fontWeight = "bold"
+const textCase = "uppercase"
 ---
 
 <html lang="en">
@@ -21,7 +26,25 @@ const goal = 3
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+
+    <style define:vars={ {skillColor, fontWeight, textCase} }>
+        h1{
+            color: purple;
+            font-size: 4rem
+        }
+
+        /*noinspection CssUnresolvedCustomProperty*/
+        .skill{
+            color: var(--skillColor);
+            font-weight: var(--fontWeight);
+            text-transform: var(--textCase);
+            font-weight: bold;
+        }
+
+    </style>
+
 </head>
+
 <body>
 <!-- navbar -->
 <a href="/">Home</a>
@@ -33,14 +56,14 @@ const goal = 3
 <p>Here are some facts about me:</p>
 <ul>
     <li>My name is {identity.firstName}.</li>
-    <li>I live in {identity.country} and my occupation is beeing a {identity.occupation}.</li>
+    <li>I live in {identity.country} and my occupation is being a {identity.occupation}.</li>
     {identity.hobbies.length >= 2 &&
         <li>Two of my hobbies are {identity.hobbies[0]} and {identity.hobbies[1]}</li>
     }
 </ul>
 <p>My skills are:</p>
     <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
 {happy && <p> I am happy leaning Astro!</p>}
@@ -49,11 +72,3 @@ const goal = 3
 
 </body>
 </html>
-<style>
-    body{
-        padding: 5%;
-        max-width: 800px;
-        margin: auto;
-    }
-
-</style>
