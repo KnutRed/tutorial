@@ -1,8 +1,7 @@
 ---
 import "../styles/global.css"
-import Navigation from "../components/Navigation.astro"
 import Footer from "../components/Footer.astro"
-
+import Header from "../components/Header.astro"
 const pageTitle = "Home Page"
 ---
 
@@ -16,11 +15,8 @@ const pageTitle = "Home Page"
 	</head>
 	<body>
 	<!-- navbar -->
-	<Navigation />
-
-
+	<Header />
 		<h1>{pageTitle}</h1>
-		<h1>It´s me, <span style="text-decoration: underline">learning</span> Astro</h1>
 	<Footer />
 	</body>
 </html>
