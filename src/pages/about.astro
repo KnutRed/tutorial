@@ -1,5 +1,8 @@
 ---
 import "../styles/global.css"
+import Navigation from "../components/Navigation.astro"
+import Footer from "../components/Footer.astro"
+
 const pageTitle = "About Me";
 
 const identity = {
@@ -35,7 +38,7 @@ const textCase = "uppercase"
 
         /*noinspection CssUnresolvedCustomProperty*/
         .skill{
-            color: var(--skillColor);
+            color: var(--skillColour);
             font-weight: var(--fontWeight);
             text-transform: var(--textCase);
             font-weight: bold;
@@ -47,9 +50,7 @@ const textCase = "uppercase"
 
 <body>
 <!-- navbar -->
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+<Navigation />
 
 <h1>{pageTitle}</h1>
 <h2>... and my new Astro site!</h2>
@@ -69,6 +70,6 @@ const textCase = "uppercase"
 {happy && <p> I am happy leaning Astro!</p>}
 {finished && <p> I finished this tutorial</p>}
 {goal == 3 ? <p>My goal is to finish in 3 days.</p> : <p>my goal is not 3 days</p>}
-
+<Footer />
 </body>
 </html>
